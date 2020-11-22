@@ -1,0 +1,44 @@
+openapi: 3.0.0
+servers:
+  -
+    url: 'http://test-symfony-api-rashid/v1'
+    description: 'API base url'
+paths:
+  '/api/parcels/{trackingId}':
+    get:
+      operationId: 'App\Controller\ParcelsController::showParcelsById'
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'The tracking ID'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Parcel by tracking ID'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Parcels'
+components:
+  schemas:
+    Parcels:
+      properties:
+        id:
+          type: integer
+        transactionId:
+          type: integer
+        trackingId:
+          type: string
+        status:
+          type: string
+        carrier:
+          type: string
+        shipDate:
+          type: string
+          format: date-time
+      type: object

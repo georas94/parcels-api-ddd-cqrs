@@ -1,0 +1,9 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "http://test-symfony-api-rashid/v1",
+            "description": "API base url"
+        }
+    ]
+}
